@@ -1,0 +1,87 @@
+// Hackathon would not be complete without 
+// Demonstrating The Future of the Web 
+
+// What is Polymer.js
+// - Built ontop of Polymer.js
+// - Chrome Dev Tools
+// - - Shadow DOM turned on
+// - - log="bind,ready"
+
+// HTML Imports
+// - View the Network tab, and see that nerdclustr was imported
+
+// 2 Custom Elements - nerdclustr-geo & nerdclustr-map
+
+// Shadow DOM
+
+// Styling Host
+// - Show that you can scope styling -->
+
+// Templates
+
+// MDV
+// - MDV listen for changes?
+// - set up basic pubsub
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nerdclustr Polymer</title>
+
+    <!-- 1. Shim missing platform features -->
+    <script src="polymer/polymer.js" log="bind,ready"></script>
+
+    <!-- 2. Load nerdclustr component -->
+    <link rel="import" href="nc-map-module.html">
+    <link rel="import" href="nc-geo-module.html">
+
+  </head>
+  <body>
+
+    <!-- 3. Instantiate the nerdclustr-geo and nerdclustr-map component with its tag. -->
+    <nerdclustr-geo date="today" lng="1" lat="1"></nerdclustr-geo>
+    <nerdclustr-map></nerdclustr-map>
+
+  </body>
+
+<script>
+  window.pubsub = (function() {
+    var callbacks = [];
+    function publish() {
+      var event = arguments[0],
+          args = [].slice.call(arguments, 1),
+          re = new RegExp("^" + event + "$");
+      
+      console.log(event);
+      callbacks.forEach(function(call) {
+        if(re.test(call.key)) {
+          call.handler.apply(call.context, args);
+        } else {
+          console.log("fail");
+        }
+      });
+    }
+   
+    function subscribe(key, handler, context) {
+      context = context || {};
+      callbacks.push({
+        key: key,
+        handler: handler,
+        context: context
+      });
+    }
+   
+    return {
+      publish: publish,
+      subscribe: subscribe
+    };
+  })();
+</script>
+
+</html>
+
+
+
+
+
+

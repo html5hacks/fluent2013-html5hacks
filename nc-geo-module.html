@@ -1,0 +1,67 @@
+
+<element name="nerdclustr-geo" attributes="date lng lat">
+
+  <template>
+    <style>
+
+      /* styles in @host block affect the <nerdclustr-geo> element */
+      @host {
+        * {
+          display: block;
+          padding: 10px;
+          background: #00b2b2;
+        }
+      }
+
+      /* styles here affect the ShadowDOM of the <nerdclustr-geo> element */
+      #coords {
+        color: white;
+      }
+    </style>
+
+    On: {{date}}
+    <div id="coords">{{lng}} , {{lat}}</div>
+
+  </template>
+
+  <script>
+    Polymer.register(this, {
+      date: new Date(),
+      lng: null,
+      lat: null,
+      pos: null,
+
+      ready: function() {
+
+        var self = this;
+
+        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, { enableHighAccuracy: true });
+
+        function positionSuccess(position) {
+          self.pos = position.coords;
+          self.lat = position.coords.latitude;
+          self.lng = position.coords.longitude;
+          self.$.coords.innerText = 'lat: ' + self.lat + ' lng: ' + self.lng;
+        };
+
+        function positionError(position) {
+          console.log('error')
+        };
+
+        var positionTimer = navigator.geolocation.watchPosition(
+          function(position){
+            console.log( "Newer Position Found: " + position.coords.latitude + ", " + position.coords.longitude);
+          }
+        ); 
+      },
+
+      // NerdClustr Public Methods
+
+      posChanged: function(){
+        pubsub.publish("pos:changed", this.pos);
+      }
+
+    });
+
+  </script>
+</element>

@@ -1,0 +1,470 @@
+
+// Hacks are about Learning
+// Form playground
+
+// Lets start out simple 
+// Forms are never the most exciting aspect of Web Development
+// But they are present in nearly every web application
+
+
+<!-- HTML5 FORMS  -->
+
+<!-- HTML5/CSS3 Specs
+
+  New Form Elements
+  Input types
+  Attributes
+  CSS3 styling techniques
+
+  Use case - User Feedback and more specifically Browser-Based validation 
+
+-->
+
+<!-- FORM ELEMENTS ---------------------------------- -->
+
+<!-- 5 new elements
+
+  progress - Represents completion of a task or the progress of a file being uploaded.
+
+
+      function add(num) {
+
+        var bar = document.getElementById("progressbar1");
+
+        bar.value += num;
+
+      };
+
+  meter - Represents a scalar measurement within a known range...temperature or weight measurement.
+
+  datalist - Represents a set of optionelements that can be used in combination with the new list attribute for input to make dropdown menus. When the input with the associated datalist gets focus, a dropdown menu appears and contains the values from thedatalist.
+
+  keygen - A control for key-pair generation. When the form is submitted, the private key gets stored in the local keystore, and the public key is sent to the server.
+
+  output - Displays the results of a calculation. 
+
+-->
+
+<!-- 
+DEMO:
+progress
+datalist
+-->
+
+<!-- INPUT TYPES ---------------------------------- -->
+
+<!-- 12 new input types
+
+  tel For entering a telephone number.  tel does not enforce a particular syntax, so if you want to ensure a particular format, you can use pattern or setCustomValidity() to do additional validation.
+
+  search  To prompt users to enter text that they want to search for. The difference between search and text is primarily stylistic. Using an input type of search might result in the input field being styled in a way that is consistent with that platform's search fields.
+
+  url For entering a single URL.  url is intended for entering a single, absolute URL, which represents a pretty wide range of values.
+
+  email For entering either a single email address or a list of email addresses.  If the multiple attribute is specified, then multiple email addresses can be entered, separated by commas.
+
+  datetime  For entering a date and time with the time zone set to UTC. 
+
+  date  For entering a date with no time zone.  
+
+  month For entering a date with a year and a month, but no time zone.  
+
+  week  For entering a date that consists of a week-year number and a week number, but no time zone.  An example of 
+  this format is 2011-W05 for the fifth week of 2011.
+
+  time  For entering a time value with hour, minute, seconds, and fractional seconds, but no time zone. 
+  datetime-local  For entering a date and time with no time zone. 
+
+  number  For numerical input.  Valid values are floating point numbers.
+
+  range For numerical input, but unlike number, the actual is not important.  The implementation of the range control is a slider in most browsers that support it.
+
+  color For choosing color through a color well control.  The value must be a valid lowercase simple color such as #ffffff. 
+
+-->
+
+<!-- 
+DEMO:
+email 
+date
+color
+-->
+
+<!-- ATTRIBUTES ---------------------------------- -->
+
+<!-- 13 new attributes
+
+  autofocus Focuses the input on the element when the page is loaded. autofocus can be applied to input, select, textarea, and button.
+
+  placeholder Gives the user a hint about what sort of data they should enter.  The placeholder value is displayed in light text until the element gets focus and the user enters some data. It can be specified on input and textarea
+
+  form  Specifies one or more forms to which the input element belongs. By using the form attribute, the input elements can be placed anywhere on the page, not just within the form element. Also, a single input element can be associated with more than one form.
+
+  required  A boolean attribute that means the element is required. The required attribute is helpful for doing browser-based validation without using custom JavaScript.
+
+  autocomplete  For specifying that a field should not autocomplete or be pre-filled by the browser based on a user's past entries. The autocomplete attribute for fields like a credit card number or one-time password, which you don't want autocomplete. By default, autocomplete is in the on state, so if you want to disable it, set it to off.
+
+  pattern For validating an element's value against a regular expression. When using a pattern, you should also specify a title value to give the user a description of the pattern that's expected.
+
+  dirname For submitting the directionality of the control with the form. For example, if the user entered text data with right-to-left directionality and the input element contained the dirname attribute, then an indication of the right-to-left directionality would be submitted along with the input value.
+
+  novalidate  For disabling form submission validation when specified on a form element.  
+
+  formaction  For overriding the action attribute on the form element.  This attribute is supported on input and button elements.
+
+  formenctype For overriding the enctype attribute on the form element. This attribute is supported on input and button elements.
+
+  formmethod  For overriding the method attribute on the form element.  This attribute is supported on input and button elements.
+
+  formnovalidate  For overriding the novalidate attribute on the form element.  This attribute is supported on input and button elements.
+
+  formtarget  For overriding the target attribute on the form element.  This attribute is supported on input and button elements. 
+-->
+
+<!-- 
+DEMO:
+pattern
+placeholder
+required 
+-->
+
+<!-- CLIENT SIDE VALIDATION ----------------------------------
+
+  required  A boolean attribute that means the element is required. The required attribute is helpful for doing browser-based validation without using custom JavaScript.
+
+  pattern For validating an element's value against a regular expression. When using a pattern, you should also specify a title value to give the user a description of the pattern that's expected.
+
+  novalidate  For disabling form submission validation when specified on a form element.  
+
+-->
+
+<!-- 
+DEMO:
+email/password - required
+-->
+
+<!-- CSS3 STLYING TECHNIQUES ---------------------------------- -->
+
+<!-- Required Pseudo Class Selectors
+
+  Link-related pseudo class selectors
+
+  :link
+  :visited
+  :hover
+  :active
+
+  Input & link related pseudo class selectors
+
+  :target
+  :enabled
+  :disabled
+  :checked
+  :indeterminate
+
+  Position/Number-based pseudo class selectors
+
+  :root
+  :first-child
+  :nth-child(N)
+  :nth-of-type(N)
+  :first-of-type
+  :last-of-type
+  :nth-last-of-type(N)
+  :nth-last-child(N)
+  :only-of-type
+
+  Relational pseudo class selectors
+
+  :not(S) 
+  :empty 
+
+  Text-related pseudo class selectors / elements
+
+  :first-letter 
+  :lang
+  ::selection
+
+  Content-related pseudo "elements"
+
+  :before
+  :after 
+-->
+
+<!-- Styling the webkit-validation-bubble -->
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    </head>
+    <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+
+          <a class="brand" href="/">HTML5 Hacks - Fluent 2013 </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./forms.html">Forms</a>
+              </li>
+<!--               <li class="">
+                <a href="/">Other</a>
+              </li>        -->       
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="container">
+
+          <section>
+
+            <form id="form1">
+
+              <label>first name:</label>
+              <input type="text" id="username" name="first_name" placeholder="first name" >
+
+              <label>last name:</label>
+              <input type="text" id="username" name="last_name" placeholder="last name" >
+
+              <label>nerd type:</label>
+              <input type="text" list="mydata">
+
+              <datalist id="mydata">
+                <option label="Developer" value="Developer">
+                <option label="Designer" value="Designer">
+                <option label="Manager" value="Manager">
+                <option label="Gamer" value="Gamer"> 
+                <option label="Maker" value="Maker">        
+              </datalist>
+
+              <label>DOB:</label>
+              <input type="date">
+
+              <label>favorite color:</label>
+              <input type="color">
+
+              <label>username:</label>
+              <input type="text" id="username" name="username" placeholder="username" >
+
+              <label>email address:</label>
+              <input type="email" id="emailaddress" name="emailaddress" placeholder="you@domain.com" required>
+
+              <label>password:</label>
+              <input type="password" id="f1password" name="password" placeholder="" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+
+              <label>confirm password:</label>
+              <input type="password" id="f1confirm-password" name="confirm-password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+
+              <button class="btn btn-large" type="submit" value="submit" >Submit</button>
+ 
+              <label>progress:</label>
+              <progress id="progressbar1" class="pb" value="0" max="100"></progress>
+
+            </form>
+          </section>
+
+          <section>
+
+            <form id="form2">
+
+              <label>username:</label>
+              <input type="text" id="f2username" name="username" placeholder="username" required >
+
+              <label>password:</label>
+              <input type="password" id="f2password" name="password" placeholder="" required >
+
+              <button class="btn btn-large" type="submit" value="login" >Log in</button>
+
+              <label>progress:</label>              
+              <progress id="progressbar1" value="0" max="100"></progress>
+
+            </form>
+          </section>
+
+      </div>
+
+      <style>
+
+          body{
+            background-color: #00b2b2
+          }
+
+          *:focus {outline: none;}
+
+          .container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 60px auto 20px auto;
+            -moz-border-radius: 1em 4em 1em 4em;
+            border-radius: 1em 4em 1em 4em;
+          }
+
+          .navbar .brand{
+            margin-left: 10px;
+          }
+
+          :required {
+            border: 10px solid #00b2b2 !important;
+
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            -o-border-radius:5px;
+            -ms-border-radius:5px;
+            border-radius:5px !important;
+          }
+
+          section {
+            width : 350px;
+            display: inline;
+            float: left;
+          }
+
+          form {
+            width:300px;
+            margin: 20px auto;
+          }
+
+          input {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            border:1px solid #ccc;
+            font-size:20px;
+            width:300px;
+            min-height:30px;
+            display:block;
+            margin-bottom:15px;
+            margin-top:5px;
+            outline: none;
+
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            -o-border-radius:5px;
+            -ms-border-radius:5px;
+            border-radius:5px;
+          }
+
+          .btn {
+            margin:15px 0 15px 0 ;
+          }
+
+          progress {
+            width:300px;
+          }
+
+          input[type=submit] {
+            background:none;
+            padding:10px;
+          }
+
+
+          ::-webkit-validation-bubble-arrow-clipper {
+
+          }
+
+          ::-webkit-validation-bubble-message {
+            color: #000;
+            background: #00b2b2;
+            border-color: #444;
+            -webkit-box-shadow: 4px 4px 4px rgba(100,100,100,0.5);
+          }
+          ::-webkit-validation-bubble-message:before {
+            content: '';
+          }
+          ::-webkit-validation-bubble-message:after {
+            content: '';
+          }
+          ::-webkit-validation-bubble-arrow {
+            display: none;
+          }
+
+
+          #emailaddress::-webkit-validation-bubble-arrow-clipper {
+
+          }
+
+          #emailaddress::-webkit-validation-bubble-message {
+            margin-left: 370px;
+          }
+
+          #f1password::-webkit-validation-bubble-arrow-clipper {
+            margin: 7px;
+          }
+
+          #f1password::-webkit-validation-bubble-message {
+            margin-left: 370px;
+          }
+
+          #f1confirm-password::-webkit-validation-bubble-arrow-clipper {
+            margin: 12px;
+          }
+
+           #f1confirm-password::-webkit-validation-bubble-message {
+            margin-left: 370px;
+          }
+
+          #f2username::-webkit-validation-bubble-arrow-clipper {
+            //margin-top: -41px;
+            //margin-top: -2.9em;
+            margin-top: -6.7%;
+          }
+
+          #f2username::-webkit-validation-bubble-message {
+            margin-left: 405px;
+          }
+
+          #f2password::-webkit-validation-bubble-arrow-clipper {
+            margin-top: -34px;
+          }
+
+          #f2password::-webkit-validation-bubble-message {
+            margin-left: 405px;
+          }
+      </style>
+
+      <script type="text/javascript">
+
+        function add(num) {
+
+          var bar = document.getElementById("progressbar1");
+
+          bar.value += num;
+
+        };
+      </script>
+
+      <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript">
+      </script>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+

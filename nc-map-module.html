@@ -1,0 +1,38 @@
+
+<script src="js/vendor/leaflet.js"></script>
+<link rel="stylesheet" href="css/leaflet.css">
+
+<element name="nerdclustr-map">
+
+  <template>
+    <div id="map"></div>
+  </template>
+
+  <script>
+
+    Polymer.register(this, {
+      
+      ready: function() {
+
+        var map = L.map(this.$.map, {
+          center: [41, -73],
+          zoom: 6
+        });
+
+        L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+          maxZoom: 18
+        }).addTo(map);
+
+        pubsub.subscribe("pos:changed", function(pos) {
+          map.setView(new L.LatLng(pos.latitude, pos.longitude), 14)
+        }, this);
+
+      },
+
+      // NerdClustr Public Methods
+      getData: function() {
+        return $(this.$.map).data('data');
+      }
+    });
+  </script>
+</element>
